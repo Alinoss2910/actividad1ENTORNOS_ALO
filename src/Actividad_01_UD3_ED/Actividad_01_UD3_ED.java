@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Actividad_01_UD3_ED;
+package Actividad_01_UD3_ED;//Esto es un cometario echo por airam
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -16,24 +16,24 @@ import java.io.IOException;
  */
 public class Actividad_01_UD3_ED 
 {
-    private static byte[] buffer = new byte[1000];
-    private static String fileName = "fichero.dat";
-    private static FileInputStream inputStream = null;
-    private static BufferedInputStream inputBuffer = null;
+    private static byte[] intermedio = new byte[1000];
+    private static String nombreFichero = "fichero.dat";
+    private static FileInputStream intermediario = null;
+    private static BufferedInputStream juanitoJuarez = null;
 
     public static void inicializateFiles() throws FileNotFoundException
     {
-        inputStream = new FileInputStream(fileName);
-        inputBuffer = new BufferedInputStream(inputStream);
+        intermediario = new FileInputStream(nombreFichero);
+        juanitoJuarez = new BufferedInputStream(intermediario);
     }
     
     public static int showFileText() throws IOException
     {
         int total = 0;
         int nRead = 0;
-        while((nRead = inputStream.read(buffer)) != -1) 
+        while((nRead = intermediario.read(intermedio)) != -1) 
         {
-            System.out.println(new String(buffer));
+            System.out.println(new String(intermedio));
             total += nRead;
         }
         
@@ -61,10 +61,10 @@ public class Actividad_01_UD3_ED
         {
             try 
             {
-                if( inputBuffer != null && inputStream != null )
+                if( juanitoJuarez != null && intermediario != null )
                 {
-                    inputStream.close();
-                    inputBuffer.close();
+                    intermediario.close();
+                    juanitoJuarez.close();
                 }                
             } 
             catch (IOException ex) 
